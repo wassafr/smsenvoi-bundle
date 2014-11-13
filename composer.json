@@ -1,0 +1,13 @@
+{
+    "name": "wassa/smsenvoi-bundle",
+    "type": "symfony-bundle",
+    "description": "SmsEnvoi bundle",
+    "keywords": ["sms", "smsenvoi"],
+    "license": "proprietary",
+    "require": {
+        "php": ">=5.3.2",
+    },
+    "autoload": {
+        "psr-4": { "Wassa\\SmsEnvoiBundle\\": "Wassa/SmsEnvoiBundle/" }
+    }
+}
