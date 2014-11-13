@@ -1,5 +1,5 @@
 parameters:
-    wassa_sms_envoi.sendsms.class: Wassa\Bundle\SmsEnvoiBundle\SendSms
+    wassa_sms_envoi.sendsms.class: Wassa\SmsEnvoiBundle\SendSms
  
 services:
     wassa_sms_envoi.sendsms:
