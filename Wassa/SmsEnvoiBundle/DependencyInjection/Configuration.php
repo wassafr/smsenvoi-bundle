@@ -30,6 +30,14 @@ class Configuration implements ConfigurationInterface
                    	->isRequired()
 					->cannotBeEmpty()
 				->end()
+                ->scalarNode('subtype')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('sender_label')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                ->end()
 			->end();
 
         return $treeBuilder;

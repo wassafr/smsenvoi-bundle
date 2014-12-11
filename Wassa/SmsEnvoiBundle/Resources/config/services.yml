@@ -1,7 +1,7 @@
 parameters:
-    wassa_sms_envoi.sendsms.class: Wassa\SmsEnvoiBundle\SendSms
+    wassa_sms_envoi.sendsms.class: Wassa\SmsEnvoiBundle\SmsEnvoi
  
 services:
-    wassa_sms_envoi.sendsms:
+    wassa_sms_envoi.smsenvoi:
         class: "%wassa_sms_envoi.sendsms.class%"
-        arguments: [%wassa_sms_envoi.api_key%, %wassa_sms_envoi.email%]
+        arguments: [%wassa_sms_envoi.api_key%, %wassa_sms_envoi.email%, %wassa_sms_envoi.subtype%, %wassa_sms_envoi.sender_label%]

@@ -24,6 +24,8 @@ class WassaSmsEnvoiExtension extends Extension
         
         $container->setParameter("wassa_sms_envoi.api_key", $config["api_key"]);
         $container->setParameter("wassa_sms_envoi.email", $config["email"]);
+        $container->setParameter("wassa_sms_envoi.subtype", $config["subtype"]);
+        $container->setParameter("wassa_sms_envoi.sender_label", $config["sender_label"]);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
