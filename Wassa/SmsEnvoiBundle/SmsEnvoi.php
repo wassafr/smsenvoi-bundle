@@ -65,7 +65,7 @@ class SmsEnvoi
 	*/
 	public $id;
 
-	public function __construct($email, $apiKey, $subtype, $senderLabel){
+	public function __construct($apiKey, $email, $subtype, $senderLabel){
 		$this->email = $email;
         $this->apiKey = $apiKey;
         $this->subtype = $subtype;
@@ -83,7 +83,6 @@ class SmsEnvoi
 		$fields['email']=$this->email;
 		$fields['apikey']=$this->apiKey;
 		$fields['version']=SMSENVOI_VERSION;
-		
 		
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_HEADER, 0);
@@ -118,9 +117,7 @@ class SmsEnvoi
 	* @param integer $richsms_option Option rich SMS à utiliser: 1 ou 2
 	* @param string $richsms_url Adresse URL à raccourcir
 	*/
-	public function sendSMSTo($recipients,$content,$subtype='PREMIUM',$senderlabel='SMS ENVOI',$senddate='',$sendtime='',$richsms_option='',$richsms_url=''){
-		
-		
+	public function sendSMSTo($recipients,$content,$subtype='PREMIUM',$senderlabel='OVMaps',$senddate='',$sendtime='',$richsms_option='',$richsms_url=''){
 		if(substr_count($recipients,',')>1000){  if($this->debug){ echo "1000 destinataires maximum par requête";}  return false; }
 		$fields['message']['recipients']=$recipients;
 		$fields['message']['content']=$content;
@@ -138,8 +135,7 @@ class SmsEnvoi
 		
 		
 		$this->result=json_decode($this->rawresult);
-		if($this->debug && (isset($this->result->message))){ echo $this->result->message; }	
-
+		if($this->debug && (isset($this->result->message))){ echo $this->result->message; }
 		
 		if(isset($this->result->success)&&($this->result->success==1)){ $this->success=true; $this->id=$this->result->message_id; }else{ $this->success=false;}
 		return $this->success;
